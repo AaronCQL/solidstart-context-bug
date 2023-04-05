@@ -13,6 +13,7 @@ import {
   Title,
 } from "solid-start";
 import "./root.css";
+import { CountProvider } from "./context";
 
 export default function Root() {
   return (
@@ -27,9 +28,11 @@ export default function Root() {
           <ErrorBoundary>
             <A href="/">Index</A>
             <A href="/about">About</A>
-            <Routes>
-              <FileRoutes />
-            </Routes>
+            <CountProvider>
+              <Routes>
+                <FileRoutes />
+              </Routes>
+            </CountProvider>
           </ErrorBoundary>
         </Suspense>
         <Scripts />
